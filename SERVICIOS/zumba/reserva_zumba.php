@@ -14,17 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
 
-    // Obtener día de la semana (1=lunes ... 7=domingo)
-    $diaSemana = date("N", strtotime($fecha));
-
-    // Validar día (solo lunes a viernes)
-    if ($diaSemana < 1 || $diaSemana > 5) {
-    $_SESSION['error_reserva'] = "Las clases solo están disponibles de lunes a viernes.";
-    header("Location: reserva_zumba.php");
-    exit;
-}
-
-    // Insertar reserva
+       
     $sql = "INSERT INTO reservas (id_usuario, id_servicio, fecha, hora, fecha_creacion)
             VALUES ('$id_usuario', '$id_servicio', '$fecha', '$hora', NOW())";
 
@@ -83,26 +73,20 @@ $conn->close();
 
 <!-- MAIN -->
 <main>
-       <?php 
+    
+    <?php
+    if (isset($_SESSION['reserva_exitosa'])) {
+    ?>
+        <div class="reserva-exitosa">
+            <?= $_SESSION['reserva_exitosa']; ?>
+        </div>
+    <?php
+        unset($_SESSION['reserva_exitosa']);
+    }
+    ?>
+    
+    <div class="mensaje-error"></div>
 
-        if (isset($_SESSION['error_reserva'])) {
-        ?>
-            <div class="mensaje-error">
-                <?php echo $_SESSION['error_reserva']; ?>
-            </div>
-        <?php
-            unset($_SESSION['error_reserva']);
-        }
-
-        if (isset($_SESSION['reserva_exitosa'])) {
-        ?>
-            <div class="reserva-exitosa">
-                <?php echo $_SESSION['reserva_exitosa']; ?>
-            </div>
-        <?php
-            unset($_SESSION['reserva_exitosa']);
-        }
-        ?>
     <div class="contenedor">
         <h1>ZUMBA</h1>
 
@@ -165,6 +149,7 @@ $conn->close();
         </div>
     </footer>
 
+<script src="reserva.js" defer></script>
 </body>
 </html>
 

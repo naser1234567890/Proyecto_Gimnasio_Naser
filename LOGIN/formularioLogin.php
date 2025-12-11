@@ -9,12 +9,15 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../REGISTRO/registro.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
 
   <!--HEADER-->
   <header>
+    
     <div class="logo">
       <h1>N-FIT</h1>
       <p>Fuerza Intensidad Trabajo</p>
@@ -24,12 +27,17 @@ session_start();
       <a href="../INICIO/index.php">Inicio</a>
       <a href="../SERVICIOS/servicios.php">Servicios</a>
       <a href="../CONTACTO/contacto.php">Contacto</a>
-      <a href="formularioRegistro.php">Únete</a>
+      <a href="formularioLogin.php">Únete</a>
+      <?php
+            if (isset($_SESSION['usuario'])) {
+                echo '<a href="../RESERVAS/reservas.php">Reservas</a>';
+            }
+            ?>
     </nav>
 
     <?php
         if (isset($_SESSION['usuario'])) {
-            
+            echo '<p class="bienvenido">Bienvenido, ' . $_SESSION['usuario'] . '</p>';
             echo '<a href="../LOGIN/logout.php"><button class="logout">CERRAR</button></a>';
         }
         ?>
@@ -44,8 +52,11 @@ session_start();
         <label for="usuario">Nombre de usuario:</label>
         <input type="text" id="usuario" name="usuario" placeholder="Introduce tu usuario" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
+        <div class="contenedor-input">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" placeholder="Introduce una contraseña" >
+          <i class="fa-solid fa-eye-slash" id="alternarContrasena"></i>
+        </div>
 
         <?php
        if (isset($_SESSION['error_sesion'])) {
@@ -88,6 +99,6 @@ session_start();
       <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
     </div>
   </footer>
-
+  <script src="contraseña.js" defer></script>
 </body>
 </html>

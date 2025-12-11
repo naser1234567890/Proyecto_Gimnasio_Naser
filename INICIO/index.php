@@ -47,9 +47,9 @@ session_start();
   
   <!-- MAIN -->
   <main>
-    <h2>EL DEPORTE <br>
-    <p>transforma tu vida</p><br>
-    </h2>
+    
+    <h2 id="textoAnimado"></h2>
+    
   </main>
 
   <!-- SECTION -->
@@ -87,7 +87,7 @@ session_start();
       <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
     </div>
   </footer>
-
+  <script src="index.js" defer></script>
 </body>
 
 </html>

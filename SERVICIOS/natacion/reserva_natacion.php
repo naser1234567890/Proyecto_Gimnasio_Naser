@@ -14,23 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
 
-    // Obtener día de la semana (1=lunes ... 7=domingo)
-    $diaSemana = date("N", strtotime($fecha));
-
-    // Validar día (solo lunes a viernes)
-    if ($diaSemana < 1 || $diaSemana > 5) {
-    $_SESSION['error_reserva'] = "Las clases solo están disponibles de lunes a viernes.";
-    header("Location: reserva.php");
-    exit;
-}
-
-    // Insertar reserva
+   
     $sql = "INSERT INTO reservas (id_usuario, id_servicio, fecha, hora, fecha_creacion)
             VALUES ('$id_usuario', '$id_servicio', '$fecha', '$hora', NOW())";
 
     if ($conn->query($sql) === TRUE) {
        $_SESSION['reserva_exitosa'] = "Se ha realizado la reserva con éxito.";
-       header("Location: reserva.php");
+       header("Location: reserva_natacion.php");
        exit;
     } else {
         echo "Error: " . $conn->error;
@@ -83,26 +73,20 @@ $conn->close();
 
 <!-- MAIN -->
 <main>
-       <?php 
+    <?php
 
-        if (isset($_SESSION['error_reserva'])) {
-        ?>
-            <div class="mensaje-error">
-                <?= $_SESSION['error_reserva']; ?>
-            </div>
-        <?php
-            unset($_SESSION['error_reserva']);
-        }
+    if (isset($_SESSION['reserva_exitosa'])) {
+    ?>
+        <div class="reserva-exitosa">
+            <?= $_SESSION['reserva_exitosa']; ?>
+        </div>
+    <?php
+        unset($_SESSION['reserva_exitosa']);
+    }
+    ?>
 
-        if (isset($_SESSION['reserva_exitosa'])) {
-        ?>
-            <div class="reserva-exitosa">
-                <?= $_SESSION['reserva_exitosa']; ?>
-            </div>
-        <?php
-            unset($_SESSION['reserva_exitosa']);
-        }
-        ?>
+    <div class="mensaje-error"></div>
+
     <div class="contenedor">
         <h1>NATACIÓN</h1>
 
@@ -119,9 +103,9 @@ $conn->close();
             </ul> 
         </p>
 
-         <form class="reserva" action="reserva.php" method="POST">
+         <form class="reserva" action="reserva_natacion.php" method="POST">
             <h1>Horarios disponibles</h1>
-            <input type="hidden" name="id_servicio" value="2">
+            <input type="hidden" name="id_servicio" value="1">
 
             <label>Fecha:</label>
             <input type="date" name="fecha" required><br>
@@ -164,7 +148,7 @@ $conn->close();
             <p>nfitsantiago <img src="../../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
-
+    <script src="reserva.js" defer></script>
 </body>
 </html>
 

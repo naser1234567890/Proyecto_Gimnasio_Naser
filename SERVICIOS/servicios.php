@@ -44,11 +44,11 @@ session_start();
     <!-- MAIN -->
     <main>
         <div class="servicios">
-            <div class="servicio">
-                <h2>yoga</h2>
+             <div class="servicio">
+                <h2>Yoga</h2>
                 <a href="yoga/reserva_yoga.php"><img src="../IMAGENES/yoga.jpg" alt="yoga"></a>
                 <a href="yoga/reserva_yoga.php"><button class="reservar">Reservar</button></a>
-            </div>
+            </div>       
             <div class="servicio">
                 <h2>hiit</h2>
                 <a href="hiit/reserva_hiit.php"><img src="../IMAGENES/hiit.webp" alt="hiit"></a>
@@ -89,7 +89,7 @@ session_start();
             <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
-
+    
 </body>
 
 </html>

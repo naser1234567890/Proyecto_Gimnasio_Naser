@@ -14,17 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
 
-    // Obtener día (1=lunes ... 7=domingo)
-    $diaSemana = date("N", strtotime($fecha));
-
-    // Validar lunes a viernes
-    if ($diaSemana < 1 || $diaSemana > 5) {
-        $_SESSION['error_reserva'] = "Las clases solo están disponibles de lunes a viernes.";
-        header("Location: reserva_yoga.php");
-        exit;
-    }
-
-    // Insertar reserva
+   
     $sql = "INSERT INTO reservas (id_usuario, id_servicio, fecha, hora, fecha_creacion)
             VALUES ('$id_usuario', '$id_servicio', '$fecha', '$hora', NOW())";
 
@@ -77,18 +67,19 @@ $conn->close();
 
 <main>
 
-<?php 
-    if (isset($_SESSION['error_reserva'])) {
-        echo "<div class='mensaje-error'>" . $_SESSION['error_reserva'] . "</div>";
-        unset($_SESSION['error_reserva']);
-    }
-
+    <?php
     if (isset($_SESSION['reserva_exitosa'])) {
-        echo "<div class='reserva-exitosa'>" . $_SESSION['reserva_exitosa'] . "</div>";
+    ?>
+        <div class="reserva-exitosa">
+            <?= $_SESSION['reserva_exitosa']; ?>
+        </div>
+    <?php
         unset($_SESSION['reserva_exitosa']);
     }
-?>
+    ?>
 
+    <div class="mensaje-error"></div>
+    
     <div class="contenedor">
         <h1>YOGA</h1>
 
@@ -149,5 +140,6 @@ $conn->close();
             <p>nfitsantiago <img src="../../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
+    <script src="reserva.js" defer></script>
 </body>
 </html>

@@ -86,6 +86,7 @@ session_start();
       <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
     </div>
   </footer>
-
+  
+<script src="contacto.js" defer></script>
 </body>
 </html>

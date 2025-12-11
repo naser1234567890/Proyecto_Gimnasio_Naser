@@ -51,6 +51,11 @@
     color: white;
   }
 
+  .bienvenido{
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
    .logout{
     background-color: black;
     border: 2px solid white;
@@ -110,13 +115,28 @@
     border-radius: 5px;
     
   }
+  .contenedor-input{
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+  }
+  #password{
+  padding-right: 40px;
+  
+  }
+
+  #alternarContrasena {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    right: 10px;
+    color: black;
+}
 
   .enviar {
     background: #D4AF13;
     color: black;
     font-weight: bold;
-    
-    
   }
 
   .enviar:hover {

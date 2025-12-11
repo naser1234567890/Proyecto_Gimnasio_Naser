@@ -23,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$nombre', '$usuario', '$email', '$password')";
 
     if ($conn->query($sql2) === TRUE) {
-        
+        $id_usuario=$conn->insert_id;
+
+        $_SESSION['id_usuario']=$id_usuario;
         $_SESSION['usuario'] = $usuario;
         $_SESSION['nombre'] = $nombre;
         $_SESSION['email'] = $email;

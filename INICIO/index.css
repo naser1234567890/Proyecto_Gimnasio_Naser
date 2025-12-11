@@ -87,14 +87,8 @@ main h2 {
   text-transform: uppercase;
   padding-top: 100px;
   padding-left: 100px;
-  
+   transition: opacity 0.9s ease-in-out;
 
-}
-
-main h2 p {
-  font-size: 100px;
-  text-transform: lowercase;
-  
 }
 
 

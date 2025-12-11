@@ -3,7 +3,7 @@ session_start();
 include("../CONEXION/conexion.php");
 
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location: ../../LOGIN/formularioLogin.php");
+    header("Location: ../LOGIN/formularioLogin.php");
     exit;
 }
 
@@ -74,6 +74,8 @@ if (isset($_POST['eliminar'])) {
     <main>
     <h1>Todas tus reservas</h1>
 
+    <input class="filtroReserva" type="text" id="filtroReserva" placeholder="Buscar por actividad...">
+
     <?php
     if ($result->num_rows > 0) {
         echo "
@@ -88,7 +90,7 @@ if (isset($_POST['eliminar'])) {
         
         while ($fila = $result->fetch_assoc()) {
             echo "
-            <tr>
+            <tr class='filas'>
                 <td>{$fila['nombre_servicio']}</td>
                 <td>{$fila['fecha']}</td>
                 <td>{$fila['hora']}</td>
@@ -133,5 +135,6 @@ if (isset($_POST['eliminar'])) {
             <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
+    <script src="reservas.js" defer></script>
 </body>
 </html>

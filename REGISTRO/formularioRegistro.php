@@ -9,7 +9,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="registro.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
 </head>
 
@@ -17,6 +17,7 @@ session_start();
 
   <!--HEADER-->
   <header>
+    
     <div class="logo">
        <h1>N-FIT</h1>
       <p>Fuerza Intensidad Trabajo</p>
@@ -27,11 +28,16 @@ session_start();
       <a href="../SERVICIOS/servicios.php">Servicios</a>
       <a href="../CONTACTO/contacto.php">Contacto</a>
       <a href="formularioRegistro.php">Únete</a>
+      <?php
+            if (isset($_SESSION['usuario'])) {
+                echo '<a href="../RESERVAS/reservas.php">Reservas</a>';
+            }
+            ?>
     </nav>
 
     <?php
         if (isset($_SESSION['usuario'])) {
-            
+            echo '<p class="bienvenido">Bienvenido, ' . $_SESSION['usuario'] . '</p>';
             echo '<a href="../LOGIN/logout.php"><button class="logout">CERRAR</button></a>';
         }
         ?>
@@ -54,9 +60,12 @@ session_start();
         <label for="email">Correo electrónico:</label>
         <input type="text" id="email" name="email" placeholder="Introduce tu email" >
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" placeholder="Introduce una contraseña" >
-      
+        <div class="contenedor-input">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" placeholder="Introduce una contraseña" >
+          <i class="fa-solid fa-eye-slash" id="alternarContrasena"></i>
+        </div>
+
        <div class="mensaje" id="mensaje"></div>
 
        <?php
@@ -105,9 +114,6 @@ session_start();
 
   
   <script src="registro.js" defer></script>
+  <script src="contraseña.js" defer></script>
 </body>
-
-
-
-
 </html>
