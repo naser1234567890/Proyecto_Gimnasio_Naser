@@ -41,8 +41,8 @@ $conn->close();
 
 <header>
     <div class="logo">
-        <h1>N-FIT</h1>
-        <p>Fuerza Intensidad Trabajo</p>
+        <h1>GOLD GYM</h1>
+        
     </div>
 
     <nav>
@@ -99,7 +99,7 @@ $conn->close();
         <form class="reserva" action="reserva_yoga.php" method="POST">
             <h1>Horarios disponibles</h1>
 
-            <input type="hidden" name="id_servicio" value="1">
+            <input type="hidden" name="id_servicio" value="2">
 
             <label>Fecha:</label>
             <input type="date" name="fecha" required><br>
@@ -137,7 +137,7 @@ $conn->close();
 
         <div>
             <h3>REDES SOCIALES</h3>
-            <p>nfitsantiago <img src="../../IMAGENES/ig.png" width="30" height="30"></p>
+            <p>goldgymsantiago <img src="../../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
     <script src="reserva.js" defer></script>

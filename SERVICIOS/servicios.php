@@ -16,8 +16,8 @@ session_start();
     <!-- ENCABEZADO -->
     <header>
         <div class="logo">
-            <h1>N-FIT</h1>
-            <p>Fuerza Intensidad Trabajo</p>
+            <h1>GOLD GYM</h1>
+            
         </div>
 
         <nav>
@@ -86,7 +86,7 @@ session_start();
 
         <div>
             <h3>REDES SOCIALES</h3>
-            <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
+            <p>goldgymsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
         </div>
     </footer>
     

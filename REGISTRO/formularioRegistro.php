@@ -9,6 +9,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="registro.css">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
 </head>
@@ -19,8 +20,8 @@ session_start();
   <header>
     
     <div class="logo">
-       <h1>N-FIT</h1>
-      <p>Fuerza Intensidad Trabajo</p>
+       <h1>GOLD GYM</h1>
+     
     </div>
 
     <nav>
@@ -108,7 +109,7 @@ session_start();
 
     <div>
       <h3>REDES SOCIALES</h3>
-      <p>nfitsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
+      <p>goldgymsantiago <img src="../IMAGENES/ig.png" width="30" height="30"></p>
     </div>
   </footer>
 

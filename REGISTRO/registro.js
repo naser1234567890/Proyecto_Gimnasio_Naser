@@ -17,25 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             return;
         }
-
-       
-
         if (usuario.length < 5 ) {
             mensaje.innerHTML= "El usuario debe tener  al menos 5 caracteres";
             e.preventDefault();
             return;
-        }
-
-        
+        }       
         const patronEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!patronEmail.test(email)) {
             mensaje.innerHTML= "Introduce un correo electrónico válido";
             e.preventDefault();
             return;
-        }
-
-        
+        }  
         const patronPassword= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
         if (!patronPassword.test(password)) {
